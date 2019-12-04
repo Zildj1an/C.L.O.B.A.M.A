@@ -3,12 +3,23 @@ import string
 import sys
 import re
 
+
 conf = SparkConf().setMaster('local').setAppName('Allies')
 sc = SparkContext(conf = conf) 
 
-RDDvar = sc.textFile("directed_yearly.csv") 
+
+
+
+RDDvar = sc.textFile("AliadosProcesados.csv")
 filt = RDDvar.filter(lambda l: "version4id" not in l)
-clear = filt.map(lambda x : ((x.split(',')[2] +", "+ (x.split(',')[17])), (x.split(',')[4])))
+clear = filt.map(lambda x : (((x.split(',')[3]) +", "+ (x.split(',')[18])), (x.split(',')[5])))
+
+
+
 orderData = clear.sortByKey()
+separate = orderData.map(lambda x: (x[0].split(',')[0], x[0].split(',')[1].replace(' ', ""), x[1] ))
+
 reduce = orderData.reduceByKey(lambda x, y: x +", " +y)
-reduce.saveAsTextFile("output.txt")
+noAcr = reduce.map(lambda x: (x[0].split(',')[0], x[0].split(',')[1].replace(' ', ""), x[1] ))
+
+noAcr.saveAsTextFile("output.txt")

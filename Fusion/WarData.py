@@ -70,20 +70,20 @@ def NoneToNoAlies(x):
     else: return x
 def NoneToNoGDP(x):
     if x is None:
-        return "NoGDP"
+        return 0
     else: return x
 
 def NoneToNoGDPAllies(x):
     if x is None:
-        return ("NoAllies","NoGDP")
+        return ("NoAllies",0)
     else: return x
 def NoneToNoInversion(x):
     if x is None:
-        return "NoInversion"
+        return 0
     else: return x
 def NoneToNoGDPAlliesInv(x):
     if x is None:
-        return (("NoAllies","NoGDP"), "NoInversion")
+        return (("NoAllies",0), 0)
     else: return x
 def NoneToNoInWar(x):
     if x is None:

@@ -21,7 +21,7 @@ for i in range(0, len(fileNames)):
           .replace(')', "")
           .replace(' ', "")
           .replace("\"\"", "")
-        ).
+        )
         
 f = open("result.csv","w+")
 for line in data:

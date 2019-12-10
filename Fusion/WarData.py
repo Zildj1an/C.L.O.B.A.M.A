@@ -55,10 +55,10 @@ sortedInversion = cleanInversion.sortByKey()
 
 #Countries in war cleanse
 
-CinwarFile = "ProcessedDATAsets/WarsPerYearDef.csv"
+CinwarFile = "ProcessedDATAsets/WarsPerYearProcessed.csv"
 RDDContInWar = sc.textFile(CinwarFile)
 filtContInWar = RDDContInWar.filter(lambda x: "country"  not in x)
-MapContInWar = filtInversionRDD.map(lambda x: ((x.split(',')[0]+ "," +x.split(',')[1]), 1))
+MapContInWar = filtContInWar.map(lambda x: ((x.split(',')[1]+ ", " +x.split(',')[2]), 1))
 SortedContInWar = MapContInWar.sortByKey()
 
 
@@ -77,8 +77,7 @@ def NoneToNoGDPAllies(x):
     if x is None:
         return ("",0)
     else: return x
-    
-def NoneToNoInversion(x):
+def NoneToZero(x):
     if x is None:
         return 0
     else: return x
@@ -87,12 +86,7 @@ def NoneToNoGDPAlliesInv(x):
     if x is None:
         return (("",0), 0)
     else: return x
-    
-def NoneToNoInWar(x):
-    if x is None:
-        return 0
-    else: return x
-    
+
 def NoneToNoBorders(x):
     if x is None:
         return ""
@@ -103,9 +97,9 @@ def NoneToNoBorders(x):
 AliesJoinGdp = AliesCountryAndYearS.fullOuterJoin(gdpClaveFechaYNombre).map(lambda x: (x[0],(NoneToNoAlies(x[1][0]),NoneToNoGDP(x[1][1]))))
 
 
-AliesGdpJoinInversion = AliesJoinGdp.fullOuterJoin(sortedInversion).map(lambda x: (x[0],( NoneToNoGDPAllies(x[1][0]), NoneToNoInversion(x[1][1])) ))
+AliesGdpJoinInversion = AliesJoinGdp.fullOuterJoin(sortedInversion).map(lambda x: (x[0],( NoneToNoGDPAllies(x[1][0]), NoneToZero(x[1][1])) ))
 
-AliesGdpInversionJoinInWar = AliesGdpJoinInversion.fullOuterJoin(SortedContInWar).map(lambda x: (x[0],( NoneToNoGDPAlliesInv(x[1][0]), NoneToNoInWar(x[1][1]) )))
+AliesGdpInversionJoinInWar = AliesGdpJoinInversion.fullOuterJoin(SortedContInWar).map(lambda x: (x[0],( NoneToNoGDPAlliesInv(x[1][0]), NoneToZero(x[1][1]) )))
 
 AliesGdpInversionJoinInWarClean = AliesGdpInversionJoinInWar.map(lambda x: (x[0].split(',')[0],  (x[0].split(',')[1].replace(' ',"") ,)+ x[1] ))
 

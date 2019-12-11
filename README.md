@@ -64,6 +64,6 @@ We discovered that **drawing the Confusion Matrix** was of great help to have a 
 
 - ![Diego Isar Muñoz](https://github.com/diegoisar)
 - ![Álvaro David Ortiz Marchut](https://github.com/NotAGoodDev)
-- ![Ricardo Rodrigo Ruíz] (https://github.com/RicardoRodrigoRuiz)
+- ![Ricardo Rodrigo Ruíz](https://github.com/RicardoRodrigoRuiz)
 - ![Jin Wang Xu](https://github.com/JwangXu)
 - ![Carlos Bilbao Muñoz](https://github.com/Zildj1an)

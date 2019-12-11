@@ -15,7 +15,7 @@ Our project was divided in two phases located in two separated pages at this web
 
 ## [1] Cloud-based pre-processing ☁️ 
 
-### Pre-processing
+### 1.1 Pre-processing
 The first question that should be addressed here is why did we need to pre-process the data. Many of the information we have collected from different websites including Wikipedia did not have sufficient samples or the samples were not in an adequate shape to be directly approached using pyspark or other Machine Learning libraries. Of course, we could have directly pre-processed in Python as part of the Artificial Intelligence phase of this project. Nevertheless, that would have been a mistake as we could make use of the advantages a Cloud-based environment is capable of providing.
 
 
@@ -27,7 +27,7 @@ Nevertheless, there has been some periods of time were there was no formal regis
 
 The same method and formula were applied for the militar inversion. Other dataset that had to be processed was the one containing the wars. The main challenge of this one was related with the cleaning, and the correct display of the dates reported. For this purposes, we have also made use of the Panda's dataframe from Python and some regular expressions. The usage of Spark for this part was discarded due to the nature of the problem, that prevented the process' parallelization. 
 
-### Combination
+### 1.2 Combination
 
 This project has required the managing of several data-sets with fairly different shapes. In order to combine the data-sets the first step was to develop a script to have the same type for the Country feature at all of them. We have used the acronyms registered at the standard ISO 3166-1 for the countries identification ids.
 

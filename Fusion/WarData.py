@@ -19,17 +19,18 @@ Borders = lineRDDBorders.reduceByKey(lambda x,y : x +", "+ y)
 
 RDDAlies = sc.textFile("ProcessedDATAsets/AliadosProcesadosV2.csv")
 filtAlies = RDDAlies.filter(lambda l: "version4id" not in l)
-clearAlies = filtAlies.map(lambda x : (((x.split(',')[3]) +", "+ (x.split(',')[18])), (x.split(',')[5])))
+filt2Alies = filtAlies.filter(lambda x: int(x.split(',')[18]) > 1850)
+clearAlies = filt2Alies.map(lambda x : (((x.split(',')[3]) +", "+ (x.split(',')[18])), (x.split(',')[5])))
 orderAlies = clearAlies.sortByKey()
 AliesCountryAndYearS = orderAlies.reduceByKey(lambda x, y: x +", " +y) # date and Country in the same column
 
 # GDP dataset cleanse
 
-fileInput = "ProcessedDATAsets/GDPDefPostPro.csv"
+fileInput = "ProcessedDATAsets/GDPdef.csv"
 textRDD = sc.textFile(fileInput)
 
 def limpiarPrimeraLinea(line):
-    if "gdppc" in line:
+    if "country" in line:
         return False
     else:
         return True
@@ -40,25 +41,28 @@ def corregir(line):
 
 allGDP = textRDD.filter(lambda x: limpiarPrimeraLinea(x))
 coregidaAllGDP = allGDP.map(lambda line: corregir(line))
-gdp = coregidaAllGDP.map(lambda line: (str(line.split(',')[0]), int(line.split(',')[2]), int(line.split(',')[3])))
-gdp = gdp.map(lambda line: (str(line[0]), (line[1], line[2]))).sortByKey()
+filtgdp = coregidaAllGDP.filter(lambda x: int(x.split(',')[1]) > 1850)
+gdp = coregidaAllGDP.map(lambda line: (str(line.split(',')[0]), int(line.split(',')[1]), int(line.split(',')[2])))
+gdp = gdp.map(lambda line: (str(line[0]), (line[1], line[2])))
+gdp = gdp.sortByKey()
 gdpClaveFechaYNombre = gdp.map(lambda x:((x[0]+ ", "+ str(x[1][0])), x[1][1]))
 
 
 #Inversion in war dataset cleanse
 
-inversionFile ="ProcessedDATAsets/gdppercent.csv"
+inversionFile ="ProcessedDATAsets/InviersonesDEF.csv"
 RDDinversion = sc.textFile(inversionFile)
 filtInversionRDD = RDDinversion.filter(lambda x: "country"  not in x)
+
 cleanInversion = filtInversionRDD.map(lambda x: ((x.split(',')[0]+ ", "+ x.split(',')[1]), x.split(',')[2]))
 sortedInversion = cleanInversion.sortByKey()
 
 #Countries in war cleanse
 
-CinwarFile = "ProcessedDATAsets/WarsPerYearProcessed.csv"
+CinwarFile = "ProcessedDATAsets/WarsPerYearDef.csv"
 RDDContInWar = sc.textFile(CinwarFile)
 filtContInWar = RDDContInWar.filter(lambda x: "country"  not in x)
-MapContInWar = filtContInWar.map(lambda x: ((x.split(',')[1]+ ", " +x.split(',')[2]), 1))
+MapContInWar = filtContInWar.map(lambda x: ((x.split(',')[0]+ ", " +x.split(',')[1]), 1))
 SortedContInWar = MapContInWar.sortByKey()
 
 
@@ -66,7 +70,7 @@ SortedContInWar = MapContInWar.sortByKey()
 
 def NoneToNoAlies(x):
     if x is None:
-        return "NoAllies"
+        return ""
     else: return x
 def NoneToNoGDP(x):
     if x is None:
@@ -75,20 +79,21 @@ def NoneToNoGDP(x):
 
 def NoneToNoGDPAllies(x):
     if x is None:
-        return ("NoAllies",0)
+        return ("",0)
     else: return x
 def NoneToZero(x):
     if x is None:
         return 0
     else: return x
+    
 def NoneToNoGDPAlliesInv(x):
     if x is None:
-        return (("NoAllies",0), 0)
+        return (("",0), 0)
     else: return x
 
 def NoneToNoBorders(x):
     if x is None:
-        return "NoBorders"
+        return ""
     else: return x
 
 #Data sets fusion
@@ -105,7 +110,18 @@ AliesGdpInversionJoinInWarClean = AliesGdpInversionJoinInWar.map(lambda x: (x[0]
 AliesGdpInversionJoinInWarJoinBorders = AliesGdpInversionJoinInWarClean.leftOuterJoin(Borders).map(lambda x: (x[0], x[1][0], NoneToNoBorders(x[1][1]) ))
 
 
-FinalDataSet = AliesGdpInversionJoinInWarJoinBorders.map(lambda x: (x[0], x[1][0], x[1][1][0][0], x[2], x[1][1][1], x[1][1][0][1], x[1][2]))
+
+FinalDataSet = AliesGdpInversionJoinInWarJoinBorders.map(lambda x:
+(str('"' + x[0] + '"'),#COUNTRY
+int(x[1][0]),#YEAR
+str('"' + x[1][1][0][0] + '"'),#ALLIES
+str('"' + x[2] + '"'),#BORDER COUNTRIES
+float(x[1][1][1]),#INVERSION
+int(x[1][1][0][1]),#GDP
+int(x[1][2])) #WAR?
+)
 
 
-FinalDataSet.saveAsTextFile("Join.txt")
+FilterData = FinalDataSet.filter(lambda x: (float(x[4]) >= 0.0)and(int(x[4]) != 0 and int(x[5]) != 0)  )
+
+FilterData.saveAsTextFile("Join.txt")

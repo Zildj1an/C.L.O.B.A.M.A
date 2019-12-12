@@ -3,12 +3,12 @@ row,CountryAcr1,Country1,CountryAcr2,Country2
 1,AND,Andorra,ESP,Spain
 2,ARE,United Arab Emirates,OMN,Oman
 3,ARE,United Arab Emirates,SAU,Saudi Arabia
-4,AF,Afghanistan,CHN,China
-5,AF,Afghanistan,IRN,Iran (Islamic Republic of)
-6,AF,Afghanistan,PAK,Pakistan
-7,AF,Afghanistan,TJK,Tajikistan
-8,AF,Afghanistan,TKM,Turkmenistan
-9,AF,Afghanistan,UZB,Uzbekistan
+4,AFG,Afghanistan,CHN,China
+5,AFG,Afghanistan,IRN,Iran (Islamic Republic of)
+6,AFG,Afghanistan,PAK,Pakistan
+7,AFG,Afghanistan,TJK,Tajikistan
+8,AFG,Afghanistan,TKM,Turkmenistan
+9,AFG,Afghanistan,UZB,Uzbekistan
 10,ATG,Antigua and Barbuda,NAM,NAM
 11,AIA,Anguilla,NAM,NAM
 12,ALB,Albania,GRC,Greece
@@ -328,7 +328,7 @@ row,CountryAcr1,Country1,CountryAcr2,Country2
 326,IRQ,Iraq,SAU,Saudi Arabia
 327,IRQ,Iraq,SYR,Syrian Arab Republic
 328,IRQ,Iraq,TUR,Turkey
-329,IRN,Iran (Islamic Republic of),AF,Afghanistan
+329,IRN,Iran (Islamic Republic of),AFG,Afghanistan
 330,IRN,Iran (Islamic Republic of),ARM,Armenia
 331,IRN,Iran (Islamic Republic of),AZE,Azerbaijan
 332,IRN,Iran (Islamic Republic of),IRQ,Iraq
@@ -508,7 +508,7 @@ row,CountryAcr1,Country1,CountryAcr2,Country2
 506,PYF,French Polynesia,NAM,NAM
 507,PNG,Papua New Guinea,IDN,Indonesia
 508,PHL,Philippines,NAM,NAM
-509,PAK,Pakistan,AF,Afghanistan
+509,PAK,Pakistan,AFG,Afghanistan
 510,PAK,Pakistan,CHN,China
 511,PAK,Pakistan,IND,India
 512,PAK,Pakistan,IRN,Iran (Islamic Republic of)
@@ -639,13 +639,13 @@ row,CountryAcr1,Country1,CountryAcr2,Country2
 637,THA,Thailand,LAO,Lao People's Democratic Republic
 638,THA,Thailand,MYS,Malaysia
 639,THA,Thailand,MMR,Myanmar
-640,TJK,Tajikistan,AF,Afghanistan
+640,TJK,Tajikistan,AFG,Afghanistan
 641,TJK,Tajikistan,CHN,China
 642,TJK,Tajikistan,KGZ,Kyrgyzstan
 643,TJK,Tajikistan,UZB,Uzbekistan
 644,TKL,Tokelau,NAM,NAM
 645,TLS,Timor-Leste,IDN,Indonesia
-646,TKM,Turkmenistan,AF,Afghanistan
+646,TKM,Turkmenistan,AFG,Afghanistan
 647,TKM,Turkmenistan,IRN,Iran (Islamic Republic of)
 648,TKM,Turkmenistan,KAZ,Kazakhstan
 649,TKM,Turkmenistan,UZB,Uzbekistan
@@ -688,7 +688,7 @@ row,CountryAcr1,Country1,CountryAcr2,Country2
 686,USA,United States,MEX,Mexico
 687,URY,Uruguay,ARG,Argentina
 688,URY,Uruguay,BRA,Brazil
-689,UZB,Uzbekistan,AF,Afghanistan
+689,UZB,Uzbekistan,AFG,Afghanistan
 690,UZB,Uzbekistan,KAZ,Kazakhstan
 691,UZB,Uzbekistan,KGZ,Kyrgyzstan
 692,UZB,Uzbekistan,TJK,Tajikistan

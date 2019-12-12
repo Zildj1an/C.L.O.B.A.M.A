@@ -65,8 +65,8 @@ We discovered that **drawing the Confusion Matrix** was of great help to have a 
 The following dependencies need to be fulfilled once you have Python and Spark: 
 
 ```
-#pip install scikit-plot
-#pip install pandas
+# pip install scikit-plot
+# pip install pandas
 ```
 Once you have downloaded this project and uncompressed the file (or clonned the repository with _git clone_) you can do:
 

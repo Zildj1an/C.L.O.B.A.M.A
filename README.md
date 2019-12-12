@@ -7,11 +7,11 @@
 
 This is the project Cloud-Based Machine-Learning Analysis of Previous and Hypothetical Armed Conflicts (C.L.O.B.A.M.A.). The main idea behind this project is to process large data-sets of geopolitical information -using Cloud-based techniques- of all the world countries in order to train an Artificial Intelligence model that can predict possible critical regions (hot-points) of possible armed conflicts in the near future. **Please scroll down for a full installation and usage tutorial. ([4])**
 
-Our project was divided in two phases located in two separated pages at this website.
+Our project was divided in two phases located in two separated pages at our website and this repository.
 
-1. A brief discussion over the Cloud techniques employed can be found in the Cloud page ![here](https://clobama.yolasite.com/Cloud.php).
+1. A brief discussion over the Cloud techniques employed can be found in the Cloud page ![here](https://clobama.yolasite.com/Cloud.php) or in the Fusion folder.
 
-2. All the information regarding the Machine Learning algorithm is located in the Artificial Intelligence page ![here](https://clobama.yolasite.com/Artificial-Intelligence.php). 
+2. All the information regarding the Machine Learning algorithm is located in the Artificial Intelligence page ![here](https://clobama.yolasite.com/Artificial-Intelligence.php) or in the IA folder. 
 
 ## [1] Cloud-based pre-processing ☁️ 
 

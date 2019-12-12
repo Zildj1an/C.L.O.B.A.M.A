@@ -3,7 +3,7 @@
 ![version](https://img.shields.io/badge/version-1-blue.svg?cacheSeconds=2592000) [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://clobama.yolasite.com/)
 ![Contributors](https://img.shields.io/badge/contributors-5-green)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
-![Hi](https://img.shields.io/badge/last%12commit-december%202019-yellow)
+![Hi](https://img.shields.io/badge/last%20commit-december%122019-yellow)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 ## [0] Introduction and Index 📄

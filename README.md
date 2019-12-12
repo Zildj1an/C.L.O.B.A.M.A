@@ -60,7 +60,7 @@ Other countries such as Spain benefit from international agreements, as it is me
 
 We discovered that **drawing the Confusion Matrix** was of great help to have a better perspective of the real and false positives (and negatives) of the model.Equally relevant was drawing the data and differentiate the obtained results, in this case, if there was or not a war, to have a better understanding on the erroneously generated information.
 
-## [4] Installation and Usage
+## [4] Installation and Usage ⚡️
 
 The following dependencies need to be fulfilled once you have Python and Spark: 
 
@@ -82,3 +82,7 @@ $ ./main.sh
 - ![Ricardo Rodrigo Ruíz](https://github.com/RicardoRodrigoRuiz)
 - ![Jin Wang Xu](https://github.com/JwangXu)
 - ![Carlos Bilbao Muñoz](https://github.com/Zildj1an)
+
+## [6] License
+
+This project's source code is licensed under the GNU-GPL License - see the <a href="https://github.com/Zildj1an/C.L.O.B.A.M.A/blob/master/LICENSE">LICENSE</a> file for details. 

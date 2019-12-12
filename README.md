@@ -5,7 +5,7 @@
 
 ## [0] Introduction and Index 📄
 
-This is the project Cloud-Based Machine-Learning Analysis of Previous and Hypothetical Armed Conflicts (C.L.O.B.A.M.A.). The main idea behind this project is to process large data-sets of geopolitical information -using Cloud-based techniques- of all the world countries in order to train an Artificial Intelligence model that can predict possible critical regions (hot-points) of possible armed conflicts in the near future. 
+This is the project Cloud-Based Machine-Learning Analysis of Previous and Hypothetical Armed Conflicts (C.L.O.B.A.M.A.). The main idea behind this project is to process large data-sets of geopolitical information -using Cloud-based techniques- of all the world countries in order to train an Artificial Intelligence model that can predict possible critical regions (hot-points) of possible armed conflicts in the near future. **Please scroll down for a full installation and usage tutorial. ([4])**
 
 Our project was divided in two phases located in two separated pages at this website.
 
@@ -60,7 +60,22 @@ Other countries such as Spain benefit from international agreements, as it is me
 
 We discovered that **drawing the Confusion Matrix** was of great help to have a better perspective of the real and false positives (and negatives) of the model.Equally relevant was drawing the data and differentiate the obtained results, in this case, if there was or not a war, to have a better understanding on the erroneously generated information.
 
-## [4] Contributors 👦
+## [4] Installation and Usage
+
+The following dependencies need to be fulfilled once you have Python and Spark: 
+
+```
+#pip install scikit-plot
+#pip install pandas
+```
+Once you have downloaded this project and uncompressed the file (or clonned the repository with _git clone_) you can do:
+
+```
+$ chmod +x main.sh   # Execution privileges
+$ ./main.sh
+```
+
+## [5] Contributors 👦
 
 - ![Diego Isar Muñoz](https://github.com/diegoisar)
 - ![Álvaro David Ortiz Marchut](https://github.com/NotAGoodDev)
